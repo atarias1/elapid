@@ -1,12 +1,14 @@
 xmax = 0
 ymax = 0
-xmin = -30 # 5mm
+xmin = -30
 ymin = -60
 
-xres = 125
-yres = 250
+xres = 180
+yres = 360
 
-v_x_BC_top = 0.1
+v_x_BC_top = 0.5
+# Using a strain rate dependent viscosity requires some amount
+# of velocity -- this often results in instability if improperly set.
 
 [Mesh]
   type = GeneratedMesh
@@ -183,22 +185,28 @@ v_x_BC_top = 0.1
   []
 
   [single_linear]
-    type = SinglePhaseLinearViscoElastic
+    type = SinglePhaseNonLinearViscoElastic
     G = 166.66
     K = 333.33
     a_eta = 0.4
     aspect_ratio = 0.25
-    eta_s_0 = 1
-    fluid_K = 0.03
-    k_ref = 0.1
+    eta_0 = 1
+    fluid_K = 10.0
+    k_ref = 1.0
+    max_eta_s = 1e3
     mu = 1
     nk = 3
-    phi_0 = 0.025
+    nsigma = 3
+    phi_0 = 0.002
     phi_f = phi_f
     phi_ref = 0.025
     rho_f = 1
     rho_s = 2
+    v_x = v_x
+    v_y = v_x
     zeta = 2.0
+    output_properties = 'k eta_s K_d rho_T'
+    outputs = exodus
   []
 []
 
@@ -323,7 +331,7 @@ v_x_BC_top = 0.1
     variable = bounds_dummy_f
     bounded_variable = phi_f
     bound_type = upper
-    bound_value = 0.9999 # It cannot be one or the denominator goes to 0
+    bound_value = 0.9999
   []
   [phi_f_lower_bound]
     type = ConstantBounds
@@ -351,26 +359,26 @@ v_x_BC_top = 0.1
   off_diagonals_in_auto_scaling = true
   compute_scaling_once = true
 
-  nl_abs_tol = 1e-7
+  nl_abs_tol = 1e-7 # Relax for non-lin until it is behaved
   nl_rel_tol = 1e-7
   nl_max_its = 25
 
   l_max_its = 1000
 
-  num_steps = 105 # Need 100 to get a checkpoint
+  num_steps = 100 # Need 100 to get a checkpoint
   #end_time = 1e14 # around 3000 years
   [TimeSteppers] # CFL h / |v|
     [RampUpDT]
       type = IterationAdaptiveDT
       optimal_iterations = 7
-      dt = 0.001
+      dt = 0.0001
       growth_factor = 1.5
       cutback_factor = 0.8
     []
 
     [MaxDT]
       type = FunctionDT
-      function = 1
+      function = 0.2
     []
   []
 []

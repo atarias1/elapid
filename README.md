@@ -1,10 +1,10 @@
 # Elapid
 Elapid is a MOOSE application for multiphysics finite element modeling of porous media.
-Elapid provides custom physics kernels and material models for the (non-)linear deformation of mono- and biphasic porous materials with Maxwell-type viscoelastic rheologies. Here, mono- and biphasic terminology refers to the number of solid phases. Additionally, the pore-space is saturated with a single fluid phase.
+Elapid provides custom physics kernels and material models for the (non-)linear deformation of heterogenous porous materials with Maxwell-type viscoelastic rheologies.
 
 ## Relevant equations
 
-Currently Elapid provides physics kernels to model Maxwell-type viscoelastic rheology. Derivations of the relevant equations can be seen in multiple forms, with many inheriting from the work of McKenzie, 1984, regarding the compaction of partially molten rocks. The forms here are implemented according to the derivation in Yarushina and Podlachikov, 2015. Variables and parameters listed at the bottom of the page.
+Currently Elapid provides physics kernels to model Maxwell-type viscoelastic rheology. Derivations of the relevant equations shown here inherit from the work of McKenzie, 1984, regarding the compaction of partially molten rocks. The forms here are implemented according to the derivation in Yarushina and Podlachikov, 2015. Variables and parameters listed at the bottom of the page.
 
 **Solid Deformation ($v_s$)**
 
@@ -54,6 +54,8 @@ Elapid currently provides a few material models for general usage. We provide bo
 These models calculate changing local permeability and changing poroelastic moduli.
 Permeability is calcuated using a Kozeny-Carman relation, and the poroelastic moduli are calculated with a Mori-Tanaka mixing rule using a provided effective pore aspect ratio.
 
+Some examples of each material are provided in the examples folder.
+
 ### Model descriptions
 | Description  | Material Name |
 | ------------- | ------------- |
@@ -85,6 +87,16 @@ Permeability is calcuated using a Kozeny-Carman relation, and the poroelastic mo
 | $\mu$         | Fluid viscosity |
 
 
+## Possible Future Extensions
+
+### Functionality
+N-solid phase compatibility
+GPU acceleration
+ALE for clast deformation in viscous matrix materials
+
+### Physics
+Chemical Reactions
+Plasticity
 
 
 ## Moose Information
@@ -95,4 +107,5 @@ For more information see: [https://mooseframework.inl.gov/getting_started/new_us
 ## References
 
 McKenzie, D. A. N. (1984). The generation and compaction of partially molten rock. _Journal of petrology_, _25_(3), 713-765.
+
 Yarushina, V. M., & Podladchikov, Y. Y. (2015). (De) compaction of porous viscoelastoplastic media: Model formulation. _Journal of Geophysical Research: Solid Earth_, _120_(6), 4146-4170.
