@@ -16,7 +16,7 @@ $$\nabla \cdot v_s + \frac{1}{K_d}\frac{dP}{dt}-\frac{\alpha}{K_d}\frac{dP_f}{dt
 
 **Fluid Pressure Evolution ($P_f$)**
 
-$$\frac{\alpha}{K_d B}\frac{dP_f}{dt} - \frac{\alpha}{K_d}\frac{dP}{dt} - \frac{k(\phi_f)}{\mu}(\nabla P_f + \rho_f g) - \frac{P-P_f}{(1- \phi_f)\eta_c} = 0$$
+$$\frac{\alpha}{K_d B}\frac{dP_f}{dt} - \frac{\alpha}{K_d}\frac{dP}{dt} - \nabla \cdot \left(\frac{k(\phi_f)}{\mu}(\nabla P_f + \rho_f g)\right) - \frac{P-P_f}{(1- \phi_f)\eta_c} = 0$$
 
 **Porosity Evolution ($\phi_f$)**
 
