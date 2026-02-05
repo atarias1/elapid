@@ -40,7 +40,7 @@ In some cases, MOOSE default kernels are sufficient, however, we have included a
 | $\frac{P-P_f}{(1-\phi_f)\eta_c}$          | ElapidSolidViscous |
 | $\frac{\alpha}{K_d B}\frac{dP_f}{dt}$     | ElapidHydroElasticFluidPressure |
 | $-\frac{\alpha}{K_d}\frac{dP}{dt}$        | ElapidHydroElasticTotalPressure |
-| $-\frac{k(\phi_f)}{\mu}(\nabla P_f + \rho_f g)$ | ElapidDarcy(**) |
+| $-\nabla \cdot \left(\frac{k(\phi_f)}{\mu}(\nabla P_f + \rho_f g)\right)$ | ElapidDarcy(**) |
 | $- \frac{P-P_f}{(1- \phi_f)\eta_c}$       | ElapidHydroViscous |
 | $\frac{1-\phi_f}{K_\phi}\frac{d P}{d t}$  | ElapidPoroElasticTotalPressure |
 | $-\frac{1-\phi_f}{K_\phi}\frac{dP_f}{dt}$ | ElapidPoroElasticFluidPressure |
