@@ -359,15 +359,15 @@ v_x_BC_top = 0.5
   off_diagonals_in_auto_scaling = true
   compute_scaling_once = true
 
-  nl_abs_tol = 1e-7 # Relax for non-lin until it is behaved
+  nl_abs_tol = 1e-7
   nl_rel_tol = 1e-7
   nl_max_its = 25
 
   l_max_its = 1000
 
-  num_steps = 100 # Need 100 to get a checkpoint
-  #end_time = 1e14 # around 3000 years
-  [TimeSteppers] # CFL h / |v|
+  num_steps = 100
+
+  [TimeSteppers]
     [RampUpDT]
       type = IterationAdaptiveDT
       optimal_iterations = 7

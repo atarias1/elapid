@@ -90,12 +90,12 @@ Some examples of each material are provided in the examples folder.
 ## Possible Future Extensions
 
 ### Functionality
-N-solid phase compatibility
-GPU acceleration
+N-solid phase compatibility,
+GPU acceleration,
 ALE for clast deformation in viscous matrix materials
 
 ### Physics
-Chemical Reactions
+Chemical Reactions,
 Plasticity
 
 
@@ -109,3 +109,6 @@ For more information see: [https://mooseframework.inl.gov/getting_started/new_us
 McKenzie, D. A. N. (1984). The generation and compaction of partially molten rock. _Journal of petrology_, _25_(3), 713-765.
 
 Yarushina, V. M., & Podladchikov, Y. Y. (2015). (De) compaction of porous viscoelastoplastic media: Model formulation. _Journal of Geophysical Research: Solid Earth_, _120_(6), 4146-4170.
+
+## Funding
+This application was developed with the help of funding from the Nederlanse Organisatie voor Wetenschappelijk Onderzoek (NWO) project RELEASE Grant VI.Vidi.193.030.

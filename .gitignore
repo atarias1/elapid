@@ -54,6 +54,8 @@ temp_print_trace.*
 *.msmp
 *.msmp-*
 *.muds
+# No inputs
+*.i
 # Latex garbage
 *.lot
 *.lof

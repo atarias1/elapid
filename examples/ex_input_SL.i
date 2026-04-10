@@ -358,9 +358,9 @@ v_x_BC_top = 0.0001
 
   l_max_its = 1000
 
-  num_steps = 100 # Need 100 to get a checkpoint
-  #end_time = 1e14 # around 3000 years
-  [TimeSteppers] # CFL h / |v|
+  num_steps = 100
+
+  [TimeSteppers]
     [RampUpDT]
       type = IterationAdaptiveDT
       optimal_iterations = 7
