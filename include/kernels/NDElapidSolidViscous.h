@@ -19,4 +19,5 @@ private:
   // Coupled variables -- for this kernel we apply it to solve for P_tot so we do not need to add it
   const ADVariableValue & _P_f;
   const ADVariableValue & _phi_f;
+  const ADMaterialProperty<Real> & _eta_s;
 };

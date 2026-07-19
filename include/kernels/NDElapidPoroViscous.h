@@ -18,4 +18,5 @@ private:
 
   const ADVariableValue & _P_f;
   const ADVariableValue & _P_tot;
+  const ADMaterialProperty<Real> & _eta_s;
 };

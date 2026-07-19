@@ -24,14 +24,14 @@ NDElapidSolidViscous::NDElapidSolidViscous(const InputParameters & parameters)
     _phi_r(getParam<Real>("phi_r")),
 
     _P_f(adCoupledValue("P_f")),
-    _phi_f(adCoupledValue("phi_f"))
-
+    _phi_f(adCoupledValue("phi_f")),
+    _eta_s(getADMaterialProperty<Real>("eta_s"))
 {
 }
 
 ADReal
 NDElapidSolidViscous::computeQpResidual()
 {
-  return _test[_i][_qp] *
-         ((_u[_qp] - _P_f[_qp]) / ((1 - _phi_f[_qp]) * _zeta * (_phi_r / _phi_f[_qp])));
+  return _test[_i][_qp] * ((_u[_qp] - _P_f[_qp]) /
+                           ((1 - _phi_f[_qp]) * _zeta * _eta_s[_qp] * (_phi_r / _phi_f[_qp])));
 }
